@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>COVID-19 Stats</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Quicksand&amp;display=swap"
+    />
+    <!-- <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script> -->
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
+      integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp"
+      crossorigin="anonymous"
+    />
+    <script src="/js/numeral.min.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"
+      integrity="sha512-d9xgZrVZpmmQlfonhQUvTR7lMPtO7NkZMkA0ABN3PHCbKA5nqylQ/yWlFAyY6hYgdF1Qh6nYiuADWwKB4C2WSw=="
+      crossorigin="anonymous"
+    ></script>
+    <!-- <script
+      type="text/javascript"
+      src="https://www.gstatic.com/charts/loader.js"
+    ></script>
+    <script type="text/javascript">
+      google.charts.load("current", { packages: ["corechart", "line"] });
+    </script> -->
+  </head>
+  <body>
+    <img class="bgimg" src="/assets/covidbg.jpg" />
+    <header>
+      <div class="logo">
+        <h2>COVID-19 Stats</h2>
+      </div>
+      <div class="nav">
+        <ul>
+          <li>
+            <a class="active" href="#">Home</a>
+            <!-- </li>
+          <li> -->
+            <a href="#">About</a>
+          </li>
+        </ul>
+      </div>
+    </header>
+
+    <div class="search-country">
+      <div id="country-flag"></div>
+      <div class="search-box">
+        <input
+          type="text"
+          id="search-input"
+          value=""
+          placeholder="     Search Country"
+        />
+        <button type="submit" id="button" class="fas fa-search fa-1x"></button>
+      </div>
+    </div>
+
+    <div class="card-holder">
+      <div class="card1">
+        <h3>Cases</h3>
+        <h2 id="case">Loading Cases</h2>
+        <h2 id="tcase">Total : Loading</h2>
+        <h6 id="updated1">Loading Data</h6>
+      </div>
+      <div class="card2">
+        <h3>Recovered</h3>
+        <h2 id="recovery">Loading Recovered</h2>
+        <h2 id="trecovery">Total : Loading</h2>
+        <h6 id="updated2">Loading Data</h6>
+      </div>
+      <div class="card3">
+        <h3>Deaths</h3>
+        <h2 id="death">Loading Deaths</h2>
+        <h2 id="tdeath">Total : Loading</h2>
+        <h6 id="updated3">Loading Data</h6>
+      </div>
+    </div>
+
+    <div class="graph">
+      <canvas id="countryChart"></canvas>
+      <canvas id="mainChart"></canvas>
+    </div>
+
+    <script src="/js/globalChart.js"></script>
+    <script src="/app.js"></script>
+
+    <footer>
+      <p>&#169; Copyright 2020 ChiragChrg</p>
+    </footer>
+  </body>
+</html>
