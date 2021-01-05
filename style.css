@@ -125,6 +125,7 @@ header {
   margin: 35px 0px;
 }
 
+.card0,
 .card1,
 .card2,
 .card3 {
@@ -137,6 +138,7 @@ header {
   background-color: #fff;
 }
 
+.card0,
 .card1,
 .card2,
 .card3 h2 {
@@ -144,6 +146,12 @@ header {
   text-shadow: 0px 0px 1.5px rgba(80, 80, 80, 0.7);
 }
 
+.card0 h3 {
+  padding-bottom: 15px;
+  font-size: 20px;
+  font-weight: 900;
+  text-shadow: 1px 1px 1px rgba(80, 80, 80, 0.7);
+}
 .card1 h3 {
   padding-bottom: 15px;
   font-size: 20px;
@@ -163,8 +171,29 @@ header {
   text-shadow: 1px 1px 1px rgba(80, 80, 80, 0.7);
 }
 
+/* .card0 {
+  border: 1px solid rgba(0, 138, 244, 0.8);
+  box-shadow: 2px 2px 8px 0px rgba(0, 138, 244, 0.8);
+}
+.card1 {
+  border: 1px solid rgba(255, 255, 0, 0.8);
+  box-shadow: 2px 2px 8px 0px rgba(255, 255, 0, 0.8);
+}
+.card2 {
+  border: 1px solid rgba(0, 128, 0, 0.8);
+  box-shadow: 2px 2px 8px 0px rgba(0, 128, 0, 0.8);
+}
+.card3 {
+  border: 1px solid rgba(255, 0, 0, 0.8);
+  box-shadow: 2px 2px 8px 0px rgba(255, 0, 0, 0.8);
+} */
+
+#active {
+  color: #0f1ddd;
+  padding-bottom: 10px;
+}
 #case {
-  color: #ffff00;
+  color: #f3f306;
   padding-bottom: 10px;
 }
 

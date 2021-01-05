@@ -46,7 +46,7 @@
 //     google.charts.setOnLoadCallback(drawChart);
 //   });
 
-let api2 = `https://disease.sh/v3/covid-19/historical/all?lastdays=50`;
+let api2 = `https://disease.sh/v3/covid-19/historical/all?lastdays=20`;
 let graphdata = fetch(api2)
   .then(response => response.json())
   .then(data => {

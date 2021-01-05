@@ -57,11 +57,22 @@
           value=""
           placeholder="     Search Country"
         />
-        <button type="submit" id="button" class="fas fa-search fa-1x"></button>
+        <button
+          onclick="getResults(SearchElement.value)"
+          type="submit"
+          id="button"
+          class="fas fa-search fa-1x"
+        ></button>
       </div>
     </div>
 
     <div class="card-holder">
+      <div id="card-active" class="card0" style="display: none">
+        <h3>Active</h3>
+        <h2 id="active">Loading Active</h2>
+        <!-- <h2 id="tactive">Total : Loading</h2> -->
+        <h6 id="updated0">Loading Data</h6>
+      </div>
       <div class="card1">
         <h3>Cases</h3>
         <h2 id="case">Loading Cases</h2>
