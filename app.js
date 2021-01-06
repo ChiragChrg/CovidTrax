@@ -16,10 +16,10 @@ const ActiveElement = document.querySelector("#active");
 let GlobalFlag = "./assets/global.jpg";
 
 // Brave Error Fix
-ethereum.autoRefreshOnNetworkChange = false;
+// ethereum.autoRefreshOnNetworkChange = false;
 
 // Default Onload Fetched Data
-if (SearchElement.value == "") {
+const globalData = () => {
   let api = `https://disease.sh/v3/covid-19/all`;
   let fetchRes = fetch(api);
   fetchRes
@@ -43,14 +43,20 @@ if (SearchElement.value == "") {
     .then(() => {
       display();
     });
-}
+};
+window.onload = globalData();
 
 // Manual Onsearch Fetched Data
 SearchElement.addEventListener("keypress", setQuery);
 
 function setQuery(evt) {
   if (evt.keyCode == 13) {
-    getResults(SearchElement.value);
+    if (SearchElement.value.toUpperCase() == "GLOBAL") {
+      // console.log("GAnJA");
+      globalData();
+    } else {
+      getResults(SearchElement.value);
+    }
     // var inputvalue = SearchElement.value;
     // return inputvalue;
     // getStates(SearchElement.value);
@@ -121,14 +127,13 @@ const getStates = () => {
   state
     .then(state => state.json())
     .then(xxstate => {
-      // console.log(xxstate.statewise.length);
       document.getElementById("card-active").style.display = "block";
+      xlen = xxstate.statewise.length;
 
-      for (var i = 0; i < xxstate.statewise.length; i++) {
-        if (
-          xxstate.statewise[i].state.toUpperCase() == stateName ||
-          xxstate.statewise[i].statecode == stateName
-        ) {
+      for (var i = 0; i < xlen; i++) {
+        state = xxstate.statewise[i].state;
+        statecode = xxstate.statewise[i].statecode;
+        if (state.toUpperCase() == stateName || statecode == stateName) {
           // console.log(xxstate.statewise[i].state);
           SearchElement.value = "";
           SearchElement.placeholder = xxstate.statewise[i].state;
@@ -237,7 +242,6 @@ const getDistricts = () => {
     })
     .catch(() => {
       alert("Please enter a valid Country, State or District Name.");
-      return;
     });
 };
 
