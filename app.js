@@ -19,115 +19,137 @@ let GlobalFlag = "./assets/global.jpg";
 // ethereum.autoRefreshOnNetworkChange = false;
 
 // Default Onload Fetched Data
-const globalData = () => {
+async function globalData() {
   let api = `https://disease.sh/v3/covid-19/all`;
-  let fetchRes = fetch(api);
-  fetchRes
-    .then(data => data.json())
-    .then(d => {
-      // console.log(d);
-      flag = GlobalFlag;
-      // xcountryName = "Global";
+  let fetchRes = await fetch(api);
+  let data = await fetchRes.json();
+  console.log(data);
+  return data;
+}
+globalData()
+  .then(d => {
+    // console.log(d);
+    flag = GlobalFlag;
+    // xcountryName = "Global";
 
-      Updated = d.updated;
+    Updated = d.updated;
 
-      Case = d.todayCases;
-      tCase = d.cases;
+    Case = d.todayCases;
+    tCase = d.cases;
 
-      Recover = d.todayRecovered;
-      tRecover = d.recovered;
+    Recover = d.todayRecovered;
+    tRecover = d.recovered;
 
-      Death = d.todayDeaths;
-      tDeath = d.deaths;
-    })
-    .then(() => {
-      display();
-    });
-};
+    Death = d.todayDeaths;
+    tDeath = d.deaths;
+  })
+  .then(() => {
+    var date = new Date(Updated).toLocaleString();
+
+    CaseElement.innerHTML = " + " + numeral(Case).format("0,0");
+    TcaseElement.innerHTML = "Total : " + numeral(tCase).format("0,0");
+    RecoveryElement.innerHTML = " + " + numeral(Recover).format("0,0");
+    TrecoveryElement.innerHTML = "Total : " + numeral(tRecover).format("0,0");
+    DeathElement.innerHTML = " + " + numeral(Death).format("0,0");
+    TdeathElement.innerHTML = "Total : " + numeral(tDeath).format("0,0");
+    Update1Element.innerHTML = "Updated on : " + date;
+    Update2Element.innerHTML = "Updated on : " + date;
+    Update3Element.innerHTML = "Updated on : " + date;
+    FlagElement.innerHTML = `<img src="${flag}" class="country-flag" alt="Country-Flag"/>`;
+  });
 window.onload = globalData();
 
 // Manual Onsearch Fetched Data
 SearchElement.addEventListener("keypress", setQuery);
-
 function setQuery(evt) {
   if (evt.keyCode == 13) {
     if (SearchElement.value.toUpperCase() == "GLOBAL") {
       // console.log("GAnJA");
       globalData();
     } else {
-      getResults(SearchElement.value);
+      // getResults(SearchElement.value);
+      fetchData(SearchElement.value);
     }
-    // var inputvalue = SearchElement.value;
-    // return inputvalue;
-    // getStates(SearchElement.value);
   }
 }
 
-function getResults(country) {
-  if (country != "") {
+// Match data and Fetch from multiple APIs
+const fetchData = query => {
+  //Country Data Fetch
+  async function getCountry() {
     console.log("Country is ON");
-
-    let xapi = `https://disease.sh/v3/covid-19/countries/${country}`;
-    let fetchCountry = fetch(xapi);
-    fetchCountry
-      .then(xdata => {
-        if (xdata.ok) {
-          return xdata.json();
-        }
-        // else {
-        // getStates();
-        // return;
-        // alert("Invalid Country Name or Code");
-        // SearchElement.value = "";
-        // }
-      })
-      .then(xd => {
-        // console.log(xd);
-
-        flag = xd.countryInfo.flag;
-        countryName = xd.country;
-
-        Updated = xd.updated;
-
-        Case = xd.todayCases;
-        tCase = xd.cases;
-
-        Recover = xd.todayRecovered;
-        tRecover = xd.recovered;
-
-        Death = xd.todayDeaths;
-        tDeath = xd.deaths;
-
-        SearchElement.value = "";
-        SearchElement.placeholder = `${countryName}`;
-      })
-      .then(() => {
-        display();
-        countryChart();
-      })
-      .catch(() => {
-        console.log("Counrty is OFF");
-        getStates();
-        return;
-      });
-  } else {
-    alert("Please Search a Country Name or Country Code.");
+    let xapi = `https://disease.sh/v3/covid-19/countries/${query}`;
+    let res = await fetch(xapi);
+    let cData = await res.json();
+    console.log(cData);
+    if (res.ok) {
+      return cData;
+    }
   }
-}
+  getCountry()
+    .then(xd => {
+      console.log("Country X is ON");
+      // console.log(xd);
 
-// Search Indian States Data
-const getStates = () => {
-  console.log("State is ON");
+      flag = xd.countryInfo.flag;
+      countryName = xd.country;
 
-  let Sapi = `https://api.covid19india.org/data.json`;
-  var sName = SearchElement.value;
-  var stateName = sName.toUpperCase();
-  // console.log(stateName);
-  let state = fetch(Sapi);
-  state
-    .then(state => state.json())
+      Updated = xd.updated;
+
+      Case = xd.todayCases;
+      tCase = xd.cases;
+
+      Recover = xd.todayRecovered;
+      tRecover = xd.recovered;
+
+      Death = xd.todayDeaths;
+      tDeath = xd.deaths;
+
+      SearchElement.value = "";
+      SearchElement.placeholder = `${countryName}`;
+    })
+    .then(() => {
+      // display();
+      countryChart();
+
+      var date = new Date(Updated).toLocaleString();
+
+      CaseElement.innerHTML = " + " + numeral(Case).format("0,0");
+      TcaseElement.innerHTML = "Total : " + numeral(tCase).format("0,0");
+      RecoveryElement.innerHTML = " + " + numeral(Recover).format("0,0");
+      TrecoveryElement.innerHTML = "Total : " + numeral(tRecover).format("0,0");
+      DeathElement.innerHTML = " + " + numeral(Death).format("0,0");
+      TdeathElement.innerHTML = "Total : " + numeral(tDeath).format("0,0");
+      Update1Element.innerHTML = "Updated on : " + date;
+      Update2Element.innerHTML = "Updated on : " + date;
+      Update3Element.innerHTML = "Updated on : " + date;
+      FlagElement.innerHTML = `<img src="${flag}" class="country-flag" alt="Country-Flag"/>`;
+    })
+    .catch(() => {
+      console.log("Counrty is OFF");
+      getStates();
+      return;
+    });
+
+  // .
+  // .
+  // Indian State Data Fetch
+  async function getStates() {
+    console.log("State is ON");
+
+    let Sapi = `https://api.covid19india.org/data.json`;
+    let res = await fetch(Sapi);
+    let sData = await res.json();
+    console.log(sData);
+    if (res.ok) {
+      return sData;
+    }
+  }
+  getStates()
     .then(xxstate => {
-      document.getElementById("card-active").style.display = "block";
+      console.log("State X is ON");
+      var sName = SearchElement.value;
+      var stateName = sName.toUpperCase();
       xlen = xxstate.statewise.length;
 
       for (var i = 0; i < xlen; i++) {
@@ -153,9 +175,13 @@ const getStates = () => {
           tDeath = xxstate.statewise[i].deaths;
         }
       }
+      console.log("State X1 is ON");
     })
     .then(() => {
+      console.log("State X2 is ON");
+
       // countryChart((countryName = "India"));
+      document.getElementById("card-active").style.display = "block";
 
       var date = new Date(Updated).toLocaleString();
       ActiveElement.innerHTML = "Total : " + numeral(tActive).format("0,0");
@@ -174,25 +200,31 @@ const getStates = () => {
       Update3Element.innerHTML =
         NameState + ", India. <br> Updated on : " + date;
       FlagElement.innerHTML = `<img src="${flag}" class="country-flag" alt="Country-Flag"/>`;
+      console.log("State X3 is ON");
     })
     .catch(() => {
       console.log("State is OFF");
       getDistricts();
       return;
     });
-};
 
-// Search Indian District Data
-const getDistricts = () => {
-  console.log("District is ON");
-  let Dapi = `https://api.covid19india.org/state_district_wise.json`;
-  var dName = SearchElement.value.toUpperCase();
-
-  let district = fetch(Dapi);
-  district
-    .then(district => district.json())
+  // .
+  // .
+  // Indian District Data Fetch
+  async function getDistricts() {
+    console.log("District is ON");
+    let Dapi = `https://api.covid19india.org/state_district_wise.json`;
+    let res = await fetch(Dapi);
+    let dData = await res.json();
+    console.log(dData);
+    if (res.ok) {
+      return dData;
+    }
+  }
+  getDistricts()
     .then(xdist => {
       var len = Object.keys(xdist).length;
+      var dName = SearchElement.value.toUpperCase();
 
       for (var i = 0; i < len; i++) {
         distName = Object.values(xdist);
@@ -241,25 +273,25 @@ const getDistricts = () => {
       FlagElement.innerHTML = `<img src="${flag}" class="country-flag" alt="Country-Flag"/>`;
     })
     .catch(() => {
-      alert("Please enter a valid Country, State or District Name.");
+      // alert("Please enter a valid Country, State or District Name.");
     });
 };
 
 // Main Display
-const display = () => {
-  var date = new Date(Updated).toLocaleString();
+// const display = () => {
+//   var date = new Date(Updated).toLocaleString();
 
-  CaseElement.innerHTML = " + " + numeral(Case).format("0,0");
-  TcaseElement.innerHTML = "Total : " + numeral(tCase).format("0,0");
-  RecoveryElement.innerHTML = " + " + numeral(Recover).format("0,0");
-  TrecoveryElement.innerHTML = "Total : " + numeral(tRecover).format("0,0");
-  DeathElement.innerHTML = " + " + numeral(Death).format("0,0");
-  TdeathElement.innerHTML = "Total : " + numeral(tDeath).format("0,0");
-  Update1Element.innerHTML = "Updated on : " + date;
-  Update2Element.innerHTML = "Updated on : " + date;
-  Update3Element.innerHTML = "Updated on : " + date;
-  FlagElement.innerHTML = `<img src="${flag}" class="country-flag" alt="Country-Flag"/>`;
-};
+//   CaseElement.innerHTML = " + " + numeral(Case).format("0,0");
+//   TcaseElement.innerHTML = "Total : " + numeral(tCase).format("0,0");
+//   RecoveryElement.innerHTML = " + " + numeral(Recover).format("0,0");
+//   TrecoveryElement.innerHTML = "Total : " + numeral(tRecover).format("0,0");
+//   DeathElement.innerHTML = " + " + numeral(Death).format("0,0");
+//   TdeathElement.innerHTML = "Total : " + numeral(tDeath).format("0,0");
+//   Update1Element.innerHTML = "Updated on : " + date;
+//   Update2Element.innerHTML = "Updated on : " + date;
+//   Update3Element.innerHTML = "Updated on : " + date;
+//   FlagElement.innerHTML = `<img src="${flag}" class="country-flag" alt="Country-Flag"/>`;
+// };
 
 //Country Chart render
 const countryChart = () => {
