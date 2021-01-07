@@ -26,7 +26,12 @@
     background-color: #008af4;
   }
 
-  .logo i {
+  .logo a {
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .logo a i {
     display: flex;
     margin-left: 30px;
     margin-top: 0%;
@@ -35,7 +40,7 @@
     font-size: 45px;
   }
 
-  .logo i h5 {
+  .logo a i h5 {
     padding: 4px 0;
   }
 
@@ -209,14 +214,18 @@
     background-color: #008af4;
   }
 
-  .logo i {
+  .logo a {
+    text-decoration: none;
+  }
+
+  .logo a i {
     display: flex;
     margin-left: 30px;
     margin-top: 8%;
     color: #fff;
   }
 
-  .logo i h5 {
+  .logo a i h5 {
     padding: 4px 0;
   }
 
@@ -292,7 +301,6 @@
     margin-bottom: 10px; */
   /* float: right; */
   /* }
-
   .nav ul li {
     display: flex;
     padding-top: 3px;
