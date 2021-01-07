@@ -326,7 +326,7 @@
 
   .p-section {
     display: flex;
-    margin-top: 20%;
+    margin-top: 25%;
     margin-left: 15%;
     margin-right: 15%;
     /* justify-content: center; */
@@ -346,7 +346,7 @@
   }
 
   .giticon {
-    margin: 20% 0;
+    margin: 25% 0;
     text-align: center;
   }
 
@@ -373,7 +373,7 @@
   .social {
     display: flex;
     justify-content: space-evenly;
-    margin-top: 10%;
+    margin-top: 15%;
     /* margin-left: 30%;
             margin-right: 30%; */
     padding: 2% 0;
@@ -407,6 +407,8 @@
   }
 
   footer {
+    margin-top: 5%;
+    margin-bottom: 0%;
     display: grid;
     background-color: #00297e;
     /* padding: 10px 0; */
