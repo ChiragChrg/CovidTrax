@@ -601,3 +601,19 @@
     letter-spacing: 1.2px;
   }
 }
+
+/* -------------------------- Small Mobile Responsive Design  -------------------------- */
+@media (max-width: 375px) {
+  .search-box input {
+    vertical-align: middle;
+    margin: 10px 15px;
+    padding-top: 17px;
+    outline-style: none;
+    border-style: none;
+    /* border: 1px solid black; */
+    border-radius: 50px;
+    padding: 10px 30px;
+    color: #000;
+    box-shadow: 1px 1px 4px 0px #242424;
+  }
+}
