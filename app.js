@@ -23,7 +23,7 @@ async function globalData() {
   let api = `https://disease.sh/v3/covid-19/all`;
   let fetchRes = await fetch(api);
   let data = await fetchRes.json();
-  console.log(data);
+  // console.log(data);
   return data;
 }
 globalData()
@@ -81,13 +81,14 @@ const fetchData = query => {
     let xapi = `https://disease.sh/v3/covid-19/countries/${query}`;
     let res = await fetch(xapi);
     let cData = await res.json();
-    console.log(cData);
+    // console.log(cData);
     if (res.ok) {
       return cData;
     }
   }
   getCountry()
     .then(xd => {
+      // console.log(xd.status);
       console.log("Country X is ON");
       // console.log(xd);
 
@@ -95,6 +96,8 @@ const fetchData = query => {
       countryName = xd.country;
 
       Updated = xd.updated;
+
+      tActive = xd.active;
 
       Case = xd.todayCases;
       tCase = xd.cases;
@@ -113,17 +116,21 @@ const fetchData = query => {
       countryChart();
 
       var date = new Date(Updated).toLocaleString();
+      document.getElementById("card-active").style.display = "block";
 
+      ActiveElement.innerHTML = "Total : " + numeral(tActive).format("0,0");
       CaseElement.innerHTML = " + " + numeral(Case).format("0,0");
       TcaseElement.innerHTML = "Total : " + numeral(tCase).format("0,0");
       RecoveryElement.innerHTML = " + " + numeral(Recover).format("0,0");
       TrecoveryElement.innerHTML = "Total : " + numeral(tRecover).format("0,0");
       DeathElement.innerHTML = " + " + numeral(Death).format("0,0");
       TdeathElement.innerHTML = "Total : " + numeral(tDeath).format("0,0");
-      Update1Element.innerHTML = "Updated on : " + date;
-      Update2Element.innerHTML = "Updated on : " + date;
-      Update3Element.innerHTML = "Updated on : " + date;
+      Update0Element.innerHTML = countryName + ",<br> Updated on : " + date;
+      Update1Element.innerHTML = countryName + ",<br> Updated on : " + date;
+      Update2Element.innerHTML = countryName + ",<br> Updated on : " + date;
+      Update3Element.innerHTML = countryName + ",<br> Updated on : " + date;
       FlagElement.innerHTML = `<img src="${flag}" class="country-flag" alt="Country-Flag"/>`;
+      // throw "Country Search Complete";
     })
     .catch(() => {
       console.log("Counrty is OFF");
@@ -140,14 +147,14 @@ const fetchData = query => {
     let Sapi = `https://api.covid19india.org/data.json`;
     let res = await fetch(Sapi);
     let sData = await res.json();
-    console.log(sData);
+    // console.log(sData);
     if (res.ok) {
       return sData;
     }
   }
   getStates()
     .then(xxstate => {
-      console.log("State X is ON");
+      // console.log("State X is ON");
       var sName = SearchElement.value;
       var stateName = sName.toUpperCase();
       xlen = xxstate.statewise.length;
@@ -175,12 +182,10 @@ const fetchData = query => {
           tDeath = xxstate.statewise[i].deaths;
         }
       }
-      console.log("State X1 is ON");
+      // console.log("State X1 is ON");
     })
     .then(() => {
-      console.log("State X2 is ON");
-
-      // countryChart((countryName = "India"));
+      // console.log("State X2 is ON");
       document.getElementById("card-active").style.display = "block";
 
       var date = new Date(Updated).toLocaleString();
@@ -200,7 +205,8 @@ const fetchData = query => {
       Update3Element.innerHTML =
         NameState + ", India. <br> Updated on : " + date;
       FlagElement.innerHTML = `<img src="${flag}" class="country-flag" alt="Country-Flag"/>`;
-      console.log("State X3 is ON");
+      // console.log("State X3 is ON");
+      // throw "State Search Complete";
     })
     .catch(() => {
       console.log("State is OFF");
@@ -216,7 +222,7 @@ const fetchData = query => {
     let Dapi = `https://api.covid19india.org/state_district_wise.json`;
     let res = await fetch(Dapi);
     let dData = await res.json();
-    console.log(dData);
+    // console.log(dData);
     if (res.ok) {
       return dData;
     }
@@ -259,6 +265,8 @@ const fetchData = query => {
       }
     })
     .then(() => {
+      document.getElementById("card-active").style.display = "block";
+
       ActiveElement.innerHTML = "Total : " + numeral(tActive).format("0,0");
       CaseElement.innerHTML = "Total : " + numeral(tCase).format("0,0");
       TcaseElement.innerHTML = `<h2 style="display:none"></h2>`;
@@ -271,6 +279,7 @@ const fetchData = query => {
       Update2Element.innerHTML = NameDist + ", Karnataka, India.";
       Update3Element.innerHTML = NameDist + ", Karnataka, India.";
       FlagElement.innerHTML = `<img src="${flag}" class="country-flag" alt="Country-Flag"/>`;
+      // throw "District Search Complete";
     })
     .catch(() => {
       // alert("Please enter a valid Country, State or District Name.");

@@ -3,7 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>COVID-19 Stats</title>
+    <title>CovidTrax</title>
+    <link rel="shortcut icon" type="image/png" href="assets/faviconc.png" />
     <link rel="stylesheet" href="style.css" />
     <link
       rel="stylesheet"
@@ -31,20 +32,36 @@
     </script> -->
   </head>
   <body>
-    <img class="bgimg" src="/assets/covidbg.jpg" />
+    <!-- <img class="bgimg" src="/assets/covidbg.jpg" />   -->
     <header>
       <div class="logo">
-        <h2>COVID-19 Stats</h2>
+        <i class="fas fa-shield-virus fa-2x">
+          <h5>&nbsp;CovidTrax</h5>
+        </i>
       </div>
+
+      <div class="nav-main">
+        <button class="openbtn" onclick="openNav()">&#9776;</button>
+      </div>
+
       <div class="nav">
-        <ul>
-          <li>
-            <a class="active" href="/index.html">Home</a>
-            <!-- </li>
-          <li> -->
-            <a href="/about.html">About</a>
-          </li>
-        </ul>
+        <div id="sidepanel" class="sidebar">
+          <a
+            href="javascript:void(0)"
+            id="closebtn"
+            class="closebtn"
+            onclick="closeNav()"
+            >&times;</a
+          >
+          <ul>
+            <li>
+              <a class="active" href="/index.html">Home</a>
+              <!-- </li>
+            <li> -->
+              <a href="/about.html">About</a>
+            </li>
+          </ul>
+        </div>
       </div>
     </header>
 
@@ -58,7 +75,7 @@
           placeholder="     Search Country"
         />
         <button
-          onclick="getResults(SearchElement.value)"
+          onclick="fetchData(SearchElement.value)"
           type="submit"
           id="button"
           class="fas fa-search fa-1x"
@@ -94,10 +111,11 @@
     </div>
 
     <div class="graph">
-      <canvas id="countryChart"></canvas>
-      <canvas id="mainChart"></canvas>
+      <canvas id="countryChart" width="600" height="250"></canvas>
+      <canvas id="mainChart" width="600" height="250"></canvas>
     </div>
 
+    <script src="/js/nav.js"></script>
     <script src="/js/globalChart.js"></script>
     <script src="/app.js"></script>
 

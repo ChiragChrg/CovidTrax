@@ -3,7 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>About - Cli Mate</title>
+    <title>About - CovidTrax</title>
+    <link rel="shortcut icon" type="image/png" href="assets/faviconc.png" />
     <link rel="stylesheet" href="about.css" />
     <link
       rel="stylesheet"
@@ -15,21 +16,37 @@
     ></script>
   </head>
   <body>
-    <img class="bgimg" src="/assets/covidbg.jpg" />
+    <!-- <img class="bgimg" src="/assets/covidbg.jpg" /> -->
 
     <header>
       <div class="logo">
-        <h2>COVID-19 Stats</h2>
+        <i class="fas fa-shield-virus fa-2x">
+          <h5>&nbsp;CovidTrax</h5>
+        </i>
       </div>
+
+      <div class="nav-main">
+        <button class="openbtn" onclick="openNav()">&#9776;</button>
+      </div>
+
       <div class="nav">
-        <ul>
-          <li>
-            <a href="/index.html">Home</a>
-            <!-- </li>
+        <div id="sidepanel" class="sidebar">
+          <a
+            href="javascript:void(0)"
+            id="closebtn"
+            class="closebtn"
+            onclick="closeNav()"
+            >&times;</a
+          >
+          <ul>
+            <li>
+              <a href="/index.html">Home</a>
+              <!-- </li>
             <li> -->
-            <a class="active" href="/about.html">About</a>
-          </li>
-        </ul>
+              <a class="active" href="/about.html">About</a>
+            </li>
+          </ul>
+        </div>
       </div>
     </header>
 
@@ -44,7 +61,7 @@
     <div class="giticon">
       <a
         class="fab fa-github fa-2x"
-        href="https://github.com/ChiragChrg/CliMate"
+        href="https://github.com/ChiragChrg/CovidTrax"
         target="_blank"
       >
         Source Code</a
@@ -80,6 +97,6 @@
       <p>&#169; Copyright 2020 ChiragChrg</p>
     </footer>
 
-    <script src="nav.js"></script>
+    <script src="/js/nav.js"></script>
   </body>
 </html>
