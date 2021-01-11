@@ -21,8 +21,6 @@
     display: flex;
     padding: 30px 30px 0px 30px;
     justify-content: space-between;
-    /* border: 1px solid black; */
-    /* background-color: #c13554; */
     background-color: #008af4;
   }
 
@@ -53,7 +51,6 @@
   .nav ul {
     list-style-type: none;
     margin-bottom: 10px;
-    /* float: right; */
   }
 
   .nav ul li {
@@ -99,15 +96,12 @@
     position: -webkit-sticky;
     box-shadow: 0px 4px 5px -4.5px #242424;
     background-color: #008af4;
-    /* background-color: #c13554; */
-    /* border: 1px solid black; */
   }
 
   .country-flag {
     display: flex;
     flex-direction: column;
     vertical-align: middle;
-    /* width: 50px; */
     height: 35px;
     box-shadow: 0.5px 0.6px 10px 0px #242424;
   }
@@ -118,7 +112,6 @@
     padding-top: 17px;
     outline-style: none;
     border-style: none;
-    /* border: 1px solid black; */
     border-radius: 50px;
     padding: 10px 100px;
     color: #000;
@@ -152,7 +145,6 @@
   .card2,
   .card3 {
     padding: 25px 60px;
-    /* border: 1px solid black; */
     border-radius: 8px;
     text-align: center;
     letter-spacing: 0.4px;
@@ -193,23 +185,6 @@
     text-shadow: 1px 1px 1px rgba(80, 80, 80, 0.7);
   }
 
-  /* .card0 {
-    border: 1px solid rgba(0, 138, 244, 0.8);
-    box-shadow: 2px 2px 8px 0px rgba(0, 138, 244, 0.8);
-  }
-  .card1 {
-    border: 1px solid rgba(255, 255, 0, 0.8);
-    box-shadow: 2px 2px 8px 0px rgba(255, 255, 0, 0.8);
-  }
-  .card2 {
-    border: 1px solid rgba(0, 128, 0, 0.8);
-    box-shadow: 2px 2px 8px 0px rgba(0, 128, 0, 0.8);
-  }
-  .card3 {
-    border: 1px solid rgba(255, 0, 0, 0.8);
-    box-shadow: 2px 2px 8px 0px rgba(255, 0, 0, 0.8);
-  } */
-
   #active {
     color: #0f1ddd;
     padding-bottom: 10px;
@@ -239,11 +214,9 @@
     margin: 0;
     padding: 0;
     width: 90vw;
-    /* padding-right: 15%; */
     width: 80vw;
     margin-left: auto;
     margin-right: auto;
-    /* border: 1px solid black; */
   }
 
   #countryChart {
@@ -251,7 +224,6 @@
     display: none;
     padding-right: 5%;
     background-color: #fff;
-    /* border: 1px solid black; */
     border-radius: 10px;
     box-shadow: 2px 2px 8px 0px#242424;
   }
@@ -260,7 +232,6 @@
     margin: 50px 0;
     padding-right: 5%;
     background-color: #fff;
-    /* border: 1px solid black; */
     border-radius: 10px;
     box-shadow: 2px 2px 8px 0px #242424;
   }
@@ -269,7 +240,6 @@
     display: flex;
     justify-content: center;
     padding: 40px 0;
-    /* background-color: #c13554; */
     background-color: #00297e;
   }
 
@@ -303,8 +273,6 @@
     display: flex;
     padding: 2% 1%;
     justify-content: space-between;
-    /* border: 1px solid black; */
-    /* background-color: #c13554; */
     background-color: #008af4;
   }
 
@@ -328,7 +296,6 @@
     position: relative;
     margin-left: 31.5%;
     padding: 5px 15px;
-    /* border: 1px solid rgb(253, 5, 5); */
   }
 
   .openbtn {
@@ -359,7 +326,6 @@
   }
 
   .sidebar {
-    /* border: 1px solid rgb(5, 63, 253); */
     height: 100%;
     width: 0%;
     z-index: 1;
@@ -392,45 +358,6 @@
     background-color: rgba(20, 47, 167, 0.9);
   }
 
-  /* .nav ul {
-    list-style-type: none;
-    margin-bottom: 10px;
-    /* float: right; */
-  /* }
-
-  .nav ul li {
-    display: flex;
-    flex-direction: column;
-    padding-top: 3px;
-    padding-right: 10px;
-    margin: 10px;
-  } */
-
-  /* .nav ul li a {
-    text-decoration: none;
-    text-align: center;
-    padding: 5px 25px 5px 25px;
-    margin: 0px 15px;
-    border: 2px solid #fff;
-    border-radius: 50px;
-    color: #fff;
-    font-size: 17px;
-    font-weight: 500;
-    transition: 0.2s ease-in-out;
-  }
-
-  .nav ul li a:hover {
-    border-radius: 0px 55px 10px 35px;
-    background-color: #fff;
-    color: #000;
-  }
-
-  .nav ul li a.active {
-    border-radius: 0px 55px 10px 35px;
-    background-color: #fff;
-    color: #000;
-  }  */
-
   .search-country {
     display: flex;
     justify-content: center;
@@ -442,15 +369,12 @@
     position: -webkit-sticky;
     box-shadow: 0px 4px 5px -4.5px #242424;
     background-color: #008af4;
-    /* background-color: #c13554; */
-    /* border: 1px solid black; */
   }
 
   .country-flag {
     display: flex;
     flex-direction: column;
     vertical-align: middle;
-    /* width: 50px; */
     height: 35px;
     box-shadow: 0.5px 0.6px 10px 0px #242424;
   }
@@ -461,7 +385,6 @@
     padding-top: 17px;
     outline-style: none;
     border-style: none;
-    /* border: 1px solid black; */
     border-radius: 50px;
     padding: 10px 35px;
     color: #000;
@@ -480,7 +403,6 @@
     height: 40px;
     color: #fff;
     box-shadow: 1px 1px 4px 0px #242424;
-    /* cursor: pointer; */
   }
 
   .card-holder {
@@ -488,7 +410,6 @@
     flex-direction: column;
     margin: 2% 0;
     overflow-x: hidden;
-    /* border: 2px solid rgb(14, 245, 6); */
   }
 
   .card0,
@@ -497,7 +418,6 @@
   .card3 {
     margin: 4% 4%;
     padding: 25px 60px;
-    /* border: 1px solid black; */
     border-radius: 8px;
     text-align: center;
     letter-spacing: 0.4px;
@@ -565,42 +485,20 @@
 
   .graph {
     display: none;
-    /* margin: 0;
-    padding: 0;
-    height: 500px;
-    width: 80vw;
-    margin-left: auto;
-    margin-right: auto; */
-    /* padding-right: 15%; */
-    /* border: 1px solid black; */
   }
 
   #countryChart {
     display: none;
-    /* margin: 20px 0;
-    display: none;
-    padding-right: 5%;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 2px 2px 8px 0px#242424; */
-    /* border: 1px solid black; */
   }
 
   #mainChart {
     display: none;
-    /* margin: 50px 0; */
-    /* border: 1px solid black;*/
-    /* padding-right: 5%;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 2px 2px 8px 0px #242424; */
   }
 
   footer {
     display: flex;
     justify-content: center;
     padding: 40px 0;
-    /* background-color: #c13554; */
     background-color: #00297e;
   }
 
@@ -619,7 +517,6 @@
     padding-top: 17px;
     outline-style: none;
     border-style: none;
-    /* border: 1px solid black; */
     border-radius: 50px;
     padding: 10px 30px;
     color: #000;

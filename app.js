@@ -308,7 +308,7 @@ const countryChart = () => {
   let country = countryName;
   // console.log(country);
 
-  let apixx = `https://disease.sh/v3/covid-19/historical/${country}?lastdays=20`;
+  let apixx = `https://disease.sh/v3/covid-19/historical/${country}?lastdays=50`;
 
   let graphdata = fetch(apixx)
     .then(response => response.json())
