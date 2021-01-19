@@ -265,6 +265,7 @@
     right: 0;
     overflow-x: hidden;
     background-color: #fff;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
     padding-top: 60px;
     transition: 0.5s;
   }
