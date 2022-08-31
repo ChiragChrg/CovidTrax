@@ -110,6 +110,7 @@
 
   .search-box input {
     vertical-align: middle;
+    text-align: center;
     margin: 10px 15px;
     padding-top: 17px;
     outline-style: none;
